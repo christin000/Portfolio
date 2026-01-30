@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0b10" />
+    <title>Christin Joseph — Computer Scientist</title>
+    <meta name="description" content="Portfolio of Christin Joseph, a computer science student focused on computer graphics, 3D web, and systems." />
+
+    <!-- Logo / Favicon -->
+    <link rel="icon" href="/Assets/Images/PF_LOGO.png" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes fadeInUp { 
+        0% { opacity: 0; transform: translateY(16px) scale(.98); filter: blur(4px);}  
+        100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0);} 
+      }
+      @keyframes fadeIn {0%{opacity:0} 100%{opacity:1}}
+      @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
+      @keyframes shimmer { 0%{ background-position: -200% 0 } 100%{ background-position: 200% 0 } }
+      @keyframes glowPulse { 0%,100% { box-shadow: 0 0 0 rgba(99,102,241,0);} 50% { box-shadow: 0 0 32px rgba(99,102,241,.15);} }
+      [data-animate="in"] { animation: fadeInUp .9s cubic-bezier(.22,.61,.36,1) both; }
+      html { scrollbar-width: thin; scrollbar-color: rgba(99,102,241,0.85) rgba(12,15,21,0.9); }
+      ::-webkit-scrollbar{ width:10px; height:10px; }
+      ::-webkit-scrollbar-thumb{ background: linear-gradient(180deg, rgba(99,102,241,0.9), rgba(217,70,239,0.9)); border-radius:8px; border:2px solid rgba(12,15,21,0.9);}
+      ::-webkit-scrollbar-track{ background: rgba(12,15,21,0.9);}
+    </style>
+  </head>
+  <body class="bg-[#0A0B10] text-zinc-100 antialiased selection:bg-indigo-600/30 selection:text-indigo-200 scroll-smooth" style="font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; cursor: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2218%22 height=%2218%22 viewBox=%220 0 18 18%22><circle cx=%229%22 cy=%229%22 r=%223.5%22 fill=%22%23a5b4fc%22/><circle cx=%229%22 cy=%229%22 r=%227%22 fill=%22none%22 stroke=%22%239999ff%22 stroke-width=%221.2%22 opacity=%220.45%22/></svg>') 9 9, crosshair; scrollbar-width: thin; scrollbar-color: #6366f1 #0c0f15;">
+    <!-- Top gradient glow -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute -top-32 left-1/2 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-3xl" style="animation: glowPulse 6s ease-in-out infinite;"></div>
+      <div class="absolute -top-20 right-10 h-80 w-80 rounded-full bg-fuchsia-600/10 blur-2xl"></div>
+    </div>
+    <!-- Subtle grid overlay -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 opacity-[0.05]" style="background-image: linear-gradient(to right, rgba(255,255,255,0.25) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.25) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <!-- Scanline overlay -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 opacity-[0.06] mix-blend-soft-light" style="background-image: repeating-linear-gradient(to bottom, #fff, #fff 0.5px, transparent 0.5px, transparent 3px);"></div>
+
+    <!-- Floating animated coding symbols overlay -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 z-0">
+      <!-- Existing icons -->
+      <i data-lucide="code-2" class="absolute text-indigo-200/15 drop-shadow-[0_0_8px_rgba(99,102,241,0.25)]" style="top:8%; left:6%; width:26px; height:26px; animation: floatY 9s ease-in-out infinite, spin 36s linear infinite;"></i>
+      <i data-lucide="terminal" class="absolute text-fuchsia-200/15 drop-shadow-[0_0_8px_rgba(217,70,239,0.2)]" style="top:18%; right:8%; width:28px; height:28px; animation: floatY 10s ease-in-out infinite; animation-delay: .6s;"></i>
+      <i data-lucide="brackets" class="absolute text-indigo-200/15" style="bottom:14%; left:10%; width:24px; height:24px; animation: floatY 11s ease-in-out infinite, spin 50s linear infinite; animation-delay: .2s;"></i>
+      <i data-lucide="cpu" class="absolute text-emerald-200/15" style="top:38%; left:3%; width:30px; height:30px; animation: floatY 12s ease-in-out infinite; animation-delay: .9s;"></i>
+      <i data-lucide="boxes" class="absolute text-cyan-200/15" style="top:58%; right:4%; width:26px; height:26px; animation: floatY 9.5s ease-in-out infinite; animation-delay: .3s;"></i>
+      <i data-lucide="sparkles" class="absolute text-amber-200/15" style="bottom:10%; right:8%; width:22px; height:22px; animation: floatY 13s ease-in-out infinite; animation-delay: .7s;"></i>
+      <i data-lucide="cloud" class="absolute text-zinc-200/10" style="top:72%; left:18%; width:28px; height:28px; animation: floatY 14s ease-in-out infinite; animation-delay: .5s;"></i>
+      <i data-lucide="git-branch" class="absolute text-indigo-200/15" style="top:30%; right:18%; width:26px; height:26px; animation: floatY 12s ease-in-out infinite, spin 60s linear infinite; animation-delay: .4s;"></i>
+      <i data-lucide="binary" class="absolute text-fuchsia-200/15" style="top:6%; right:28%; width:22px; height:22px; animation: floatY 10.5s ease-in-out infinite;"></i>
+      <i data-lucide="database" class="absolute text-cyan-200/15" style="bottom:22%; left:30%; width:28px; height:28px; animation: floatY 11.5s ease-in-out infinite; animation-delay: .8s;"></i>
+      <!-- Existing text glyphs -->
+      <span class="absolute text-indigo-200/20 text-sm" style="top:12%; left:24%; animation: floatY 9s ease-in-out infinite; animation-delay:.3s;">{ }</span>
+      <span class="absolute text-fuchsia-200/20 text-sm" style="top:46%; right:26%; animation: floatY 12s ease-in-out infinite;">&lt;/&gt;</span>
+      <span class="absolute text-emerald-200/20 text-sm" style="bottom:18%; right:32%; animation: floatY 10s ease-in-out infinite; animation-delay:.5s;">;;</span>
+      <span class="absolute text-zinc-200/15 text-sm" style="top:64%; left:6%; animation: floatY 13s ease-in-out infinite;">0xFF</span>
+
+      <!-- Added: a bit more coding symbols -->
+      <i data-lucide="file-code" class="absolute text-indigo-200/15" style="top:24%; left:14%; width:22px; height:22px; animation: floatY 11s ease-in-out infinite; animation-delay:.2s;"></i>
+      <i data-lucide="square-terminal" class="absolute text-fuchsia-200/15" style="bottom:26%; right:14%; width:24px; height:24px; animation: floatY 10.5s ease-in-out infinite; animation-delay:.4s;"></i>
+      <i data-lucide="function-square" class="absolute text-emerald-200/15" style="top:10%; right:14%; width:22px; height:22px; animation: floatY 12.5s ease-in-out infinite; animation-delay:.6s;"></i>
+      <i data-lucide="bug" class="absolute text-rose-200/15" style="top:70%; right:22%; width:22px; height:22px; animation: floatY 9.5s ease-in-out infinite; animation-delay:.1s;"></i>
+      <i data-lucide="server" class="absolute text-cyan-200/15" style="bottom:8%; left:22%; width:24px; height:24px; animation: floatY 13s ease-in-out infinite; animation-delay:.3s;"></i>
+      <i data-lucide="braces" class="absolute text-indigo-200/15" style="top:35%; left:48%; width:22px; height:22px; animation: floatY 12s ease-in-out infinite; animation-delay:.5s;"></i>
+
+      <span class="absolute text-indigo-200/20 text-xs" style="top:22%; right:36%; animation: floatY 9.5s ease-in-out infinite;">=&gt;</span>
+      <span class="absolute text-fuchsia-200/20 text-xs" style="bottom:30%; left:14%; animation: floatY 12s ease-in-out infinite;">::</span>
+      <span class="absolute text-emerald-200/20 text-xs" style="top:78%; left:40%; animation: floatY 11.5s ease-in-out infinite;">fn()</span>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md" data-animate="in" style="animation-delay:.02s">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="flex items-center justify-between border-b border-white/10 py-4">
+          <a href="#" class="group inline-flex items-center gap-3">
+            <div class="flex h-9 w-9 items-center justify-center rounded-md bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10 hover:ring-white/20">
+              <span class="text-sm font-semibold tracking-tight">CJ</span>
+            </div>
+            <span class="text-sm text-zinc-300 group-hover:text-white transition">Christin Joseph</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a href="#about" class="text-sm text-zinc-300 hover:text-white transition">About</a>
+            <a href="#projects" class="text-sm text-zinc-300 hover:text-white transition">Projects</a>
+            <a href="#research" class="text-sm text-zinc-300 hover:text-white transition">Certificates</a>
+            <a href="#skills" class="text-sm text-zinc-300 hover:text-white transition">Skills</a>
+            <a href="#contact" class="text-sm text-zinc-300 hover:text-white transition">Contact</a>
+          </nav>
+          <div class="flex items-center gap-2">
+            <a href="mailto:christinjoseph002@gmail.com" class="inline-flex items-center gap-2 rounded-md border border-white/10 px-3 py-2 text-sm text-zinc-200 hover:text-white hover:border-white/20 hover:bg-white/5 transition">
+              <i data-lucide="mail" class="h-4 w-4"></i>
+              <span class="hidden sm:inline">Get in touch</span>
+            </a>
+            <a href="Assets/Resume/Christin_Joseph.pdf" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-md bg-white/5 px-3 py-2 text-sm text-white ring-1 ring-white/10 hover:bg-white/10 hover:ring-white/20 transition">
+              <i data-lucide="download" class="h-4 w-4"></i>
+              <span class="hidden sm:inline">Resume</span>
+            </a>
+            <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-md border border-white/10 p-2 text-zinc-300 hover:text-white hover:border-white/20 hover:bg-white/5 transition" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+              <i data-lucide="menu" class="h-5 w-5" data-icon="menu"></i>
+              <i data-lucide="x" class="h-5 w-5 hidden" data-icon="close"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden border-b border-white/10">
+          <nav class="grid gap-1 py-3">
+            <a href="#about" class="px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-white/5 rounded-md transition">About</a>
+            <a href="#projects" class="px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-white/5 rounded-md transition">Projects</a>
+            <a href="#research" class="px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-white/5 rounded-md transition">Certificates</a>
+            <a href="#skills" class="px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-white/5 rounded-md transition">Skills</a>
+            <a href="#contact" class="px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-white/5 rounded-md transition">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative" data-animate="in" style="animation-delay:.05s">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="relative my-6 w-full min-h-[calc(100vh-8rem)] rounded-2xl border border-white/10 bg-[#0C0F15]/80 ring-1 ring-white/10 shadow-2xl backdrop-blur-md">
+          <div class="flex items-center justify-between border-b border-white/10 px-3 py-2">
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full" style="background:#f38ba8"></span>
+              <span class="h-2.5 w-2.5 rounded-full" style="background:#f9e2af"></span>
+              <span class="h-2.5 w-2.5 rounded-full" style="background:#a6e3a1"></span>
+            </div>
+            <div class="text-[12px] text-[#a6adc8]">christin@portfolio: ~</div>
+            <div class="flex items-center gap-2">
+              <span class="hidden sm:inline-flex rounded-md border border-white/10 px-2 py-0.5 text-[11px] text-[#a6adc8]">CTRL</span>
+              <span class="hidden sm:inline-flex rounded-md border border-white/10 px-2 py-0.5 text-[11px] text-[#a6adc8]">K</span>
+            </div>
+          </div>
+
+          <div class="p-4 md:p-6 lg:p-8">
+            <div class="grid grid-cols-1 gap-10 py-8 md:grid-cols-2 md:py-10">
+              <div class="flex flex-col justify-center">
+                <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-indigo-200 ring-1 ring-white/10">
+                  <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Open to Hire & collaborations
+                </div>
+                <div class="text-[13px] text-emerald-300/90">
+                  christin@portfolio:~$ <span class="text-zinc-300">./render_demo --gpu</span><span class="ml-1 inline-block h-4 w-[2px] translate-y-[1px] bg-emerald-300 align-middle animate-pulse"></span>
+                </div>
+                <h1 class="mt-2 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[#cdd6f4]">
+                  <span class="bg-gradient-to-r from-indigo-300 via-fuchsia-300 to-indigo-300 bg-[length:200%_100%] bg-clip-text text-transparent" style="animation: shimmer 8s linear infinite;">Computer Scientist</span>
+                </h1>
+                <p class="mt-4 text-[#a6adc8]">
+                  I design and build interactive 3D experiences and performant systems. From C++/OpenGL rendering and real‑time pipelines to Three.js on the web, I prototype games, explore graphics techniques, and ship pragmatic automation with UiPath. I value clean architecture, low‑latency code paths, and immersive visuals that feel effortless.
+                </p>
+                <div class="mt-6 flex flex-wrap items-center gap-3">
+                  <a href="#projects" class="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm ring-1 ring-inset ring-indigo-500/50 hover:bg-indigo-500 hover:ring-indigo-400 transition transform hover:-translate-y-0.5">
+                    <i data-lucide="rocket" class="h-4 w-4"></i>
+                    See projects
+                  </a>
+                  <a href="https://www.linkedin.com/in/christin-joseph-0b7a41354/" target="_blank" class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-zinc-200 hover:text-white hover:border-white/20 hover:bg-white/10 transition transform hover:-translate-y-0.5">
+                    <i data-lucide="linkedin" class="h-4 w-4"></i>
+                    LinkedIn
+                    <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                  </a>
+                </div>
+
+                <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                  <div class="rounded-lg border border-white/10 bg-white/5 p-4" data-animate="in" style="animation-delay:.15s">
+                    <div class="tabular-nums text-2xl font-semibold tracking-tight text-[#cdd6f4]">2+</div>
+                    <div class="text-xs text-zinc-400">Years experience</div>
+                  </div>
+                  <div class="rounded-lg border border-white/10 bg-white/5 p-4" data-animate="in" style="animation-delay:.22s">
+                    <div class="tabular-nums text-2xl font-semibold tracking-tight text-[#cdd6f4]">5</div>
+                    <div class="text-xs text-zinc-400">Projects</div>
+                  </div>
+                  <div class="rounded-lg border border-white/10 bg-white/5 p-4" data-animate="in" style="animation-delay:.29s">
+                    <div class="tabular-nums text-2xl font-semibold tracking-tight text-[#cdd6f4]">5</div>
+                    <div class="text-xs text-zinc-400">Certificates</div>
+                  </div>
+                  <div class="rounded-lg border border-white/10 bg-white/5 p-4" data-animate="in" style="animation-delay:.36s">
+                    <div class="tabular-nums text-2xl font-semibold tracking-tight text-[#cdd6f4]">10+</div>
+                    <div class="text-xs text-zinc-400">Tools mastered</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative" style="animation: floatY 7s ease-in-out infinite;">
+                <div class="absolute -inset-1 rounded-xl bg-gradient-to-tr from-indigo-500/20 to-fuchsia-500/20 blur-xl"></div>
+                <div class="pointer-events-none absolute -inset-8 rounded-[2rem] border border-dashed border-indigo-400/15 animate-spin" style="animation-duration: 18s;"></div>
+                <div class="relative rounded-xl border border-white/10 bg-[#0C0F15]/80 p-4 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
+                  <div class="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                    <div class="flex items-center gap-2">
+                      <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-emerald-500/80"></span>
+                    </div>
+                    <div class="text-xs text-zinc-400">main.rs</div>
+                  </div>
+                  <pre class="mt-3 overflow-auto rounded-lg border border-white/10 bg-gradient-to-b from-[#0D1117] to-[#0B0E14] p-4 text-[13px] leading-relaxed text-zinc-300">
+<span class="text-zinc-500">// Toy runtime: async task scheduler</span>
+<span class="text-indigo-400">struct</span> Task { id: <span class="text-emerald-400">u64</span>, work: <span class="text-emerald-400">Box</span>&lt;<span class="text-emerald-400">dyn</span> FnOnce() + Send&gt; }
+<span class="text-indigo-400">struct</span> Scheduler { q: <span class="text-emerald-400">VecDeque</span>&lt;Task&gt; }
+
+<span class="text-indigo-400">impl</span> Scheduler {
+    <span class="text-indigo-400">fn</span> spawn(&mut <span class="text-rose-400">self</span>, t: Task) { <span class="text-rose-400">self</span>.q.push_back(t) }
+    <span class="text-indigo-400">fn</span> run(&mut <span class="text-rose-400">self</span>) {
+        <span class="text-emerald-400">while</span> <span class="text-rose-400">let</span> <span class="text-emerald-400">Some</span>(t) = <span class="text-rose-400">self</span>.q.pop_front() {
+            (t.work)(); <span class="text-zinc-500">// cooperative</span>
+        }
+    }
+}
+
+<span class="text-indigo-400">fn</span> main() {
+    <span class="text-emerald-400">let mut</span> s = Scheduler { q: <span class="text-emerald-400">VecDeque</span>::<span class="text-emerald-400">new</span>() };
+    <span class="text-emerald-400">for</span> id <span class="text-rose-400">in</span> 0..3 { s.spawn(Task { id, work: <span class="text-emerald-400">Box</span>::<span class="text-emerald-400">new</span>(|| println!(<span class="text-amber-300">"task {}"</span>, id)) }) }
+    s.run();
+}
+                  </pre>
+                  <div class="mt-3 flex items-center justify-between rounded-lg border border-white/10 bg-white/5 p-3">
+                    <div class="flex items-center gap-2 text-xs text-zinc-300">
+                      <i data-lucide="cpu" class="h-4 w-4"></i> low-latency
+                      <span class="mx-2 h-3 w-px bg-white/10"></span>
+                      <i data-lucide="activity" class="h-4 w-4"></i> zero-copy queues
+                      <span class="mx-2 h-3 w-px bg-white/10"></span>
+                      <i data-lucide="package" class="h-4 w-4"></i> safe concurrency
+                    </div>
+                    <a href="#projects" class="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition">
+                      Explore repos <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- End right card -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="border-t border-white/10" data-animate="in" style="animation-delay:.08s">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="grid grid-cols-1 items-start gap-10 md:grid-cols-3">
+          <div class="md:col-span-1">
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#cdd6f4] inline-flex items-center gap-2">
+              <i data-lucide="user" class="h-6 w-6 text-indigo-300"></i>
+              Profile
+            </h2>
+            <p class="mt-2 text-sm text-[#a6adc8]">A quick summary of my work and interests.</p>
+          </div>
+          <div class="md:col-span-2">
+            <div class="rounded-xl border border-white/10 bg-white/5 p-6">
+              <p class="text-[#a6adc8]">
+                Enthusiastic and driven Computer Science student with a strong passion for studying computers, programming languages, and computer graphics. Eager to explore the inner workings of computers—from low-level architecture to high-level abstractions. Proficient in C++ and OpenGL, with experience in 3D web development, game development, and software robotics (UiPath). Actively seeking opportunities to deepen knowledge in graphics programming, system design, and computational efficiency.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-300">
+                  <i data-lucide="cube" class="h-3.5 w-3.5"></i> Graphics
+                </span>
+                <span class="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-300">
+                  <i data-lucide="globe" class="h-3.5 w-3.5"></i> 3D/2D Web
+                </span>
+                <span class="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-300">
+                  <i data-lucide="database" class="h-3.5 w-3.5"></i> Database Management Systems (DBMS)
+                </span>
+                <span class="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-300">
+                  <i data-lucide="bot" class="h-3.5 w-3.5"></i> Automation/Robotics (RPA)
+                </span>
+              </div>
+              <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div class="rounded-lg border border-white/10 p-4">
+                  <div class="text-sm text-zinc-400">Location</div>
+                  <div class="text-zinc-200">Mumbai, India</div>
+                </div>
+                <div class="rounded-lg border border-white/10 p-4">
+                  <div class="text-sm text-zinc-400">Status</div>
+                  <div class="text-emerald-300">Open to Hire</div>
+                </div>
+                <div class="rounded-lg border border-white/10 p-4">
+                  <div class="text-sm text-zinc-400">Interests</div>
+                  <div class="text-zinc-200">Graphics, Systems, 3D Web</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lab/Experimental console (replaced as requested) -->
+    <section id="lab" class="border-t border-white/10" data-animate="in" style="animation-delay:.11s">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full border border-indigo-400/20 bg-indigo-500/10 px-3 py-1 text-xs text-indigo-200 ring-1 ring-white/10">
+              <i data-lucide="beaker" class="h-4 w-4"></i> Lab
+            </div>
+            <h2 class="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-[#cdd6f4]">Experimental console</h2>
+            <p class="mt-2 text-sm text-[#a6adc8]">Fun visual experiments, shader sketches, and ASCII tinkering. Rotating block below is pure text.</p>
+            <ul class="mt-4 space-y-2 text-sm text-zinc-300">
+              <li class="flex items-center gap-2"><i data-lucide="sparkles" class="h-4 w-4 text-indigo-300"></i> Low-overhead effects</li>
+              <li class="flex items-center gap-2"><i data-lucide="cpu" class="h-4 w-4 text-indigo-300"></i> GPU-inspired aesthetics</li>
+              <li class="flex items-center gap-2"><i data-lucide="terminal" class="h-4 w-4 text-indigo-300"></i> Terminal vibes</li>
+            </ul>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-6 rounded-2xl bg-gradient-to-tr from-indigo-500/20 to-fuchsia-500/20 blur-2xl"></div>
+            <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 ring-1 ring-white/10 p-4">
+              <div class="mx-auto flex h-full min-h-[280px] items-center justify-center">
+                <div class="animate-spin" style="animation-duration: 24s;">
+<pre class="text-[10.5px] leading-[10.5px] text-indigo-200/90">
+            .------.            
+        .---'  ____  `---.       
+      .'     .'    `.     `.     
+     /      /  .--.  \      \    
+    ;      ;  /    \  ;      ;   
+    |      | |  ()  | |      |   
+    ;      ;  \    /  ;      ;   
+     \      \  `--'  /      /    
+      `.     `------'     .'     
+        `---.        .---'       
+            `--.  .--'           
+                ''               
+</pre>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-zinc-300">
+                <span class="inline-flex items-center gap-2"><i data-lucide="refresh-ccw" class="h-4 w-4"></i> rotating ASCII</span>
+                <a href="#projects" class="inline-flex items-center gap-1 text-indigo-300 hover:text-indigo-200 transition">Jump to projects <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="border-t border-white/10" data-animate="in" style="animation-delay:.14s">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="flex items-end justify-between">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#cdd6f4] inline-flex items-center gap-2">
+              <i data-lucide="folder-code" class="h-6 w-6 text-indigo-300"></i>
+              Project
+            </h2>
+            <p class="mt-2 text-sm text-[#a6adc8]">A few highlights in 3D web and game development.</p>
+          </div>
+          <a href="https://github.com/christin000" class="hidden sm:inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-indigo-200 transition">
+            View all <i data-lucide="arrow-right" class="h-4 w-4"></i>
+          </a>
+        </div>
+
+        <!-- Slider -->
+        <div class="mt-6 relative">
+          <div class="absolute -inset-x-6 top-0 bottom-0 pointer-events-none bg-gradient-to-r from-[#0A0B10] via-transparent to-[#0A0B10] [mask-image:linear-gradient(to_right,black,black,transparent,transparent,black,black)] opacity-70"></div>
+          <div id="projectsScroller" class="relative flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2" style="scrollbar-width: none;">
+            <!-- Card 1 -->
+            <article class="group relative snap-start min-w-[85%] sm:min-w-[60%] md:min-w-[48%] lg:min-w-[32%] overflow-hidden rounded-xl border border-white/10 bg-white/5 ring-1 ring-white/10 hover:ring-white/20 transition transform hover:-translate-y-1" data-animate="in" style="animation-delay:.1s">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src = "Assets/Images/CyberEto_img.png" alt="Cyber-retro website" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold tracking-tight text-[#cdd6f4]">CyberEtro – 3D Cyber-Retro Website</h3>
+                  <span class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">3D Web</span>
+                </div>
+                <p class="mt-2 line-clamp-2 text-sm text-[#a6adc8]">Futuristic cyber-retro site using Blender, Figma, and Spline. Built and deployed with Framer focusing on smooth 3D interactions and responsive design.</p>
+                <div class="mt-3 flex items-center justify-between">
+                  <div class="flex items-center gap-3 text-xs text-zinc-400">
+                    <span class="inline-flex items-center gap-1"><i data-lucide="star" class="h-3.5 w-3.5"></i> —</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="git-branch" class="h-3.5 w-3.5"></i> —</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <a href="https://rare-clarity-826032.framer.app/CyberPunk_page" target="_blank" class="inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-indigo-200 transition">
+                      Demo <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="group relative snap-start min-w-[85%] sm:min-w-[60%] md:min-w-[48%] lg:min-w-[32%] overflow-hidden rounded-xl border border-white/10 bg-white/5 ring-1 ring-white/10 hover:ring-white/20 transition transform hover:-translate-y-1" data-animate="in" style="animation-delay:.18s">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src = "Assets/Images/Sinister_Passage_img.jpg" alt="Horror survival game" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold tracking-tight text-[#cdd6f4]">Sinister Passage (Horror/Survival Game)</h3>
+                  <span class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Game Dev</span>
+                </div>
+                <p class="mt-2 line-clamp-2 text-sm text-[#a6adc8]">Unity-based horror survival game with C# scripting. 3D assets modeled in Blender; immersive gameplay around suspense, survival, and exploration.</p>
+                <div class="mt-3 flex items-center justify-between">
+                  <div class="flex items-center gap-3 text-xs text-zinc-400">
+                    <span class="inline-flex items-center gap-1"><i data-lucide="star" class="h-3.5 w-3.5"></i> —</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="git-branch" class="h-3.5 w-3.5"></i> —</span>
+                  </div>
+                  <a href="#" class="inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-indigo-200 transition">More <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="group relative snap-start min-w-[85%] sm:min-w-[60%] md:min-w-[48%] lg:min-w-[32%] overflow-hidden rounded-xl border border-white/10 bg-white/5 ring-1 ring-white/10 hover:ring-white/20 transition transform hover:-translate-y-1" data-animate="in" style="animation-delay:.26s">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src="Assets/Images/Pygame_Fighting_Game_img.png" alt="2D pixelated fighting game" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold tracking-tight text-[#cdd6f4]">2D Pixelated Fighting Game</h3>
+                  <span class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Game Dev</span>
+                </div>
+                <p class="mt-2 line-clamp-2 text-sm text-[#a6adc8]">College project built in Python (Pygame). Custom sprites and animations; implemented movement, combat, and basic AI behavior.</p>
+                <div class="mt-3 flex items-center justify-between">
+                  <div class="flex items-center gap-3 text-xs text-zinc-400">
+                    <span class="inline-flex items-center gap-1"><i data-lucide="star" class="h-3.5 w-3.5"></i> —</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="git-branch" class="h-3.5 w-3.5"></i> —</span>
+                  </div>
+                  <a href="#" class="inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-indigo-200 transition">More <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- New Card 4: Retro Music Player Website -->
+            <article class="group relative snap-start min-w-[85%] sm:min-w-[60%] md:min-w-[48%] lg:min-w-[32%] overflow-hidden rounded-xl border border-white/10 bg-white/5 ring-1 ring-white/10 hover:ring-white/20 transition transform hover:-translate-y-1" data-animate="in" style="animation-delay:.34s">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src = "Assets/Images/Jukebox_img.jpg" alt="Retro music player website with cassette and vinyl aesthetic" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold tracking-tight text-[#cdd6f4]">Retro Music Player Website</h3>
+                  <span class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Frontend</span>
+                </div>
+                <p class="mt-2 line-clamp-3 text-sm text-[#a6adc8]">
+                  Designed a retro‑themed music site using, CSS, and JavaScript. Focused on clean, framework‑free code and a nostalgic UI to deliver an interactive front‑end experience with vintage aesthetics.
+                </p>
+                <div class="mt-3 flex items-center justify-between">
+                  <div class="flex items-center gap-3 text-xs text-zinc-400">
+                    <span class="inline-flex items-center gap-1"><i data-lucide="star" class="h-3.5 w-3.5"></i> —</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="git-branch" class="h-3.5 w-3.5"></i> —</span>
+                  </div>
+                  <a href="#" class="inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-indigo-200 transition">More <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- New Card 5: Marine Wildlife Educational Website -->
+            <article class="group relative snap-start min-w-[85%] sm:min-w-[60%] md:min-w-[48%] lg:min-w-[32%] overflow-hidden rounded-xl border border-white/10 bg-white/5 ring-1 ring-white/10 hover:ring-white/20 transition transform hover:-translate-y-1" data-animate="in" style="animation-delay:.42s">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src ="Assets/Images/Marinelife_Website_img.png" alt="Marine wildlife educational website with ocean scene" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold tracking-tight text-[#cdd6f4]">Marine Wildlife Educational Website</h3>
+                  <span class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">3D Web</span>
+                </div>
+                <p class="mt-2 line-clamp-3 text-sm text-[#a6adc8]">
+                  Built an interactive site showcasing marine wildlife and ocean behavior. Created 3D models in Blender and Spline, enhanced visuals using Dora, and developed with HTML, CSS, and JavaScript for clarity and smooth navigation.
+                </p>
+                <div class="mt-3 flex items-center justify-between">
+                  <div class="flex items-center gap-3 text-xs text-zinc-400">
+                    <span class="inline-flex items-center gap-1"><i data-lucide="star" class="h-3.5 w-3.5"></i> —</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="git-branch" class="h-3.5 w-3.5"></i> —</span>
+                  </div>
+                  <a href="#" class="inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-indigo-200 transition">More <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Controls -->
+          <div class="mt-4 flex items-center justify-between">
+            <div class="inline-flex items-center gap-2">
+              <button id="projPrev" class="inline-flex items-center justify-center rounded-md border border-white/10 bg-white/5 px-2.5 py-2 text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/20 transition" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="h-5 w-5"></i>
+              </button>
+              <button id="projNext" class="inline-flex items-center justify-center rounded-md border border-white/10 bg-white/5 px-2.5 py-2 text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/20 transition" aria-label="Next project">
+                <i data-lucide="chevron-right" class="h-5 w-5"></i>
+              </button>
+            </div>
+            <div id="projectsDots" class="flex items-center gap-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+     
+    <section id="research" class="border-t border-white/10" data-animate="in" style="animation-delay:.17s">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="flex items-end justify-between">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#cdd6f4] inline-flex items-center gap-2">
+              <i data-lucide="award" class="h-6 w-6 text-indigo-300"></i>
+              Certificates
+            </h2>
+            <p class="mt-2 text-sm text-[#a6adc8]">Recent certifications and coursework.</p>
+          </div>
+          <a href="https://github.com/christin000" class="hidden sm:inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-indigo-200 transition">All certificates <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+
+        <div class="mt-8 space-y-4">
+          <article class="rounded-lg border border-white/10 bg-white/5 p-5" data-animate="in" style="animation-delay:.05s">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Oracle Vector Search Professional</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">2025 • Focused on using Oracle’s vector search capabilities to build AI-powered semantic search and similarity-based data solutions.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">SQL</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="mt-8 space-y-4">
+          <article class="rounded-lg border border-white/10 bg-white/5 p-5" data-animate="in" style="animation-delay:.05s">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">The C++20 Masterclass — From Fundamentals to Advanced</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">2024 • A comprehensive course covering modern C++ features, best practices, and advanced programming techniques.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">C++</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-lg border border-white/10 bg-white/5 p-5" data-animate="in" style="animation-delay:.1s">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Computer Graphics with Modern OpenGL and C++</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">2024 • Focused on building real-time graphics applications using OpenGL with C++ for rendering and visual simulations.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] text-emerald-200">Graphics</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-lg border border-white/10 bg-white/5 p-5" data-animate="in" style="animation-delay:.15s">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Robotics — UiPath Training Certification</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">2024 • Hands-on training in designing, deploying, and managing robotic process automation solutions using UiPath.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-md border border-fuchsia-400/30 bg-fuchsia-500/10 px-2 py-0.5 text-[11px] text-fuchsia-200">RPA</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-lg border border-white/10 bg-white/5 p-5" data-animate="in" style="animation-delay:.2s">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Introduction to Big Data</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">2023 • An overview of big data concepts, technologies, and tools used to process and analyze large-scale datasets.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-md border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[11px] text-amber-200">Data</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-lg border border-white/10 bg-white/5 p-5" data-animate="in" style="animation-delay:.25s">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Introduction to Database Management Systems</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">2023 • Covers the fundamentals of databases, including data modeling, SQL, and database design principles.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-md border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-[11px] text-cyan-200">DBMS</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills + Metrics -->
+    <section id="skills" class="border-t border-white/10" data-animate="in" style="animation-delay:.2s">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#cdd6f4] inline-flex items-center gap-2">
+              <i data-lucide="sparkles" class="h-6 w-6 text-indigo-300"></i>
+              Skills
+            </h2>
+            <p class="mt-2 text-sm text-[#a6adc8]">Core strengths and tools I use.</p>
+
+            <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                <div class="text-sm text-zinc-400">Languages</div>
+                <div class="mt-2 text-zinc-200">C/C++/C#, Assembly, Java, Rust, Zig, Python, Kotlin, R, lua,</div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                <div class="text-sm text-zinc-400">Web/JS</div>
+                <div class="mt-2 text-zinc-200">HTML, CSS, JS, Node.js, AngularJS</div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                <div class="text-sm text-zinc-400">Graphics</div>
+                <div class="mt-2 text-zinc-200">OpenGL, Vulkan, DirectX, Three.js</div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                <div class="text-sm text-zinc-400">3D & Tools</div>
+                <div class="mt-2 text-zinc-200">Unity, Unreal, Godot, Blender, GIMP, Houdini, Spline, Dora, Figma, Framer</div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                <div class="text-sm text-zinc-400">Databases</div>
+                <div class="mt-2 text-zinc-200">MongoDB, Oracle SQL/SQLite/PL/SQL</div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                <div class="text-sm text-zinc-400">Automation</div>
+                <div class="mt-2 text-zinc-200">UiPath Studio, Orchestrator</div>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-300">
+                <i data-lucide="cube" class="h-3.5 w-3.5"></i> Computer Graphics
+              </span>
+              <span class="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-300">
+                <i data-lucide="globe" class="h-3.5 w-3.5"></i> 3D Web
+              </span>
+              <span class="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-300">
+                <i data-lucide="gamepad-2" class="h-3.5 w-3.5"></i> Game Dev
+              </span>
+              <span class="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-300">
+                <i data-lucide="bot" class="h-3.5 w-3.5"></i> Automation (RPA)
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold tracking-tight text-[#cdd6f4]">Metrics</h3>
+            <p class="mt-2 text-sm text-[#a6adc8]">A quick visualization of practical strengths.</p>
+            <div class="mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
+              <div>
+                <canvas id="skillsChart" height="260"></canvas>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center gap-3 text-xs text-zinc-400">
+              <span class="inline-flex items-center gap-1"><span class="h-3 w-3 rounded-sm bg-indigo-500/70 ring-1 ring-indigo-400/50"></span> Graphics</span>
+              <span class="inline-flex items-center gap-1"><span class="h-3 w-3 rounded-sm bg-fuchsia-500/70 ring-1 ring-fuchsia-400/50"></span> 3D Web</span>
+              <span class="inline-flex items-center gap-1"><span class="h-3 w-3 rounded-sm bg-emerald-500/70 ring-1 ring-emerald-400/50"></span> Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="border-t border-white/10" data-animate="in" style="animation-delay:.23s">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#cdd6f4] inline-flex items-center gap-2">
+          <i data-lucide="briefcase" class="h-6 w-6 text-indigo-300"></i>
+          Experience
+        </h2>
+        <div class="mt-8 grid grid-cols-1 gap-          6 sm:gap-8">
+          <!-- Experience Card 1 -->
+          <article class="rounded-xl border border-white/ bg-white/5 p-5 ring-1 ring-white/10">
+            <div class="flex items-start justify-between gap-3">
+ <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-md bg-indigo-500/10 ring-1 ring-indigo-400/20">
+                  <i data-lucide="globe" class="h-5 w-5 text-indigo-300"></i>
+                </div>
+                <div>
+                  <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">3D Web Developer — EBR Agency</h3>
+                  <p class="text-[13px] text-zinc-400">On-Site at EBR Agency • 2024</p>
+                </div>
+              </div>
+              <div class="hidden sm:flex items-center gap-2">
+                <span class="rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">Three.js</span>
+                <span class="rounded-md border border-fuchsia-400/30 bg-fuchsia-500/10 px-2 py-0.5 text-[11px] text-fuchsia-200">WebGL</span>
+              </div>
+            </div>
+            <ul class="mt-3 space-y-2 text-sm text-[#a6adc8]">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Built immersive, performant 3D scenes with responsive camera controls and post-processing.</li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Optimized GPU-bound bottlenecks via geometry instancing and texture atlases.</li>
+            </ul>
+          </article>
+
+          <!-- Experience Card 2 -->
+          <article class="rounded-xl border border-white/10 bg-white/5 p-5 ring-1 ring-white/10">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-md bg-emerald-500/10 ring-1 ring-emerald-400/20">
+                  <i data-lucide="gamepad-2" class="h-5 w-5 text-emerald-300"></i>
+                </div>
+                <div>
+                  <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Game Developer</h3>
+                  <p class="text-[13px] text-zinc-400">On‑campus | Personal • Active</p>
+                </div>
+              </div>
+              <div class="hidden sm:flex items-center gap-2">
+                <span class="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] text-emerald-200">Unity</span>
+                <span class="rounded-md border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[11px] text-amber-200">Pygame</span>
+              </div>
+            </div>
+            <ul class="mt-3 space-y-2 text-sm text-[#a6adc8]">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Designed core mechanics, AI states, and physics‑based interactions for 2D/3D titles.</li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Produced Blender assets and implemented C# gameplay scripts and tooling.</li>
+            </ul>
+          </article>
+
+          <!-- Experience Card 3 -->
+          <article class="rounded-xl border border-white/10 bg-white/5 p-5 ring-1 ring-white/10">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-md bg-emerald-500/10 ring-1 ring-emerald-400/20">
+                  <i data-lucide="gamepad-2" class="h-5 w-5 text-emerald-300"></i>
+                </div>
+                <div>
+                  <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">3D Modelling & Animations</h3>
+                  <p class="text-[13px] text-zinc-400">Terractive | EBR Agency • Active</p>
+                </div>
+              </div>
+              <div class="hidden sm:flex items-center gap-2">
+                <span class="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] text-emerald-200">Blender</span>
+                <span class="rounded-md border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[11px] text-amber-200">Spline</span>
+              </div>
+            </div>
+            <ul class="mt-3 space-y-2 text-sm text-[#a6adc8]">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>I craft detailed 3D models and bring them to life with expressive, story-driven animation.</li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Blending technical precision with artistic vision to create immersive visual experiences.</li>
+            </ul>
+          </article>
+
+          <!-- Experience Card 4 -->
+          <article class="rounded-xl border border-white/10 bg-white/5 p-5 ring-1 ring-white/10">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-md bg-fuchsia-500/10 ring-1 ring-fuchsia-400/20">
+                  <i data-lucide="bot" class="h-5 w-5 text-fuchsia-300"></i>
+                </div>
+                <div>
+                  <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">RPA Developer — FeatSystems</h3>
+                  <p class="text-[13px] text-zinc-400">On-Site at FeatSystems • 2024</p>
+                </div>
+              </div>
+              <div class="hidden sm:flex items-center gap-2">
+                <span class="rounded-md border border-fuchsia-400/30 bg-fuchsia-500/10 px-2 py-0.5 text-[11px] text-fuchsia-200">UiPath</span>
+                <span class="rounded-md border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-[11px] text-cyan-200">Python</span>
+              </div>
+            </div>
+            <ul class="mt-3 space-y-2 text-sm text-[#a6adc8]">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Automated repetitive workflows, reducing manual effort and error rates.</li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Packaged bots with logs, retries, and environment configs for maintainability.</li>
+            </ul>
+          </article>
+
+          <!-- Experience Card 5 -->
+          <article class="rounded-xl border border-white/10 bg-white/5 p-5 ring-1 ring-white/10">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-md bg-fuchsia-500/10 ring-1 ring-fuchsia-400/20">
+                  <i data-lucide="bot" class="h-5 w-5 text-fuchsia-300"></i>
+                </div>
+                <div>
+                  <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Linux Systems Engineer — Personal Environment</h3>
+                  <p class="text-[13px] text-zinc-400">On-Site at FeatSystems • Acive</p>
+                </div>
+              </div>
+              <div class="hidden sm:flex items-center gap-2">
+                <span class="rounded-md border border-fuchsia-400/30 bg-fuchsia-500/10 px-2 py-0.5 text-[11px] text-fuchsia-200">Arch</span>
+                <span class="rounded-md border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-[11px] text-cyan-200">Ubuntu</span>
+              </div>
+            </div>
+            <ul class="mt-3 space-y-2 text-sm text-[#a6adc8]">
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Manage development environments across Arch Linux, Ubuntu, and Pop!_OS, from manual setup to daily use.</li>
+              <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-300"></i>Optimize a keyboard-driven workflow with Hyprland, Wayland, and LazyVim while handling system configuration and troubleshooting.</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="border-t border-white/10" data-animate="in" style="animation-delay:.26s">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#cdd6f4] inline-flex items-center gap-2">
+          <i data-lucide="graduation-cap" class="h-6 w-6 text-indigo-300"></i>
+          Education
+        </h2>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Graduate — Computer Science</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">2023 — Present • Core CS curriculum with focus on graphics and systems</p>
+              </div>
+              <span class="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] text-emerald-200">Ongoing</span>
+            </div>
+            <ul class="mt-3 list-disc pl-5 text-sm text-zinc-300 space-y-1">
+              <li>Coursework: Data Structures, Algorithms, Computer Graphics, DBMS</li>
+              <li>Activities: 3D web experiments, game prototyping, open-source learning</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">C/C++ Deverloper Journey - Independent Study</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">Self-directed learning in OpenGL, modern C++, and RPA tools</p>
+              </div>
+              <span class="rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">Self-paced</span>
+            </div>
+            <ul class="mt-3 list-disc pl-5 text-sm text-zinc-300 space-y-1">
+              <li>Built demos to understand rendering pipelines and shader programming</li>
+              <li>Practiced automation with UiPath Studio and Orchestrator</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">RPA Trainee — FeatSystems</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">I was trained to build and manage RPA bots that automate repetitive tasks, improve accuracy, and save time for businesses.</p>
+              </div>
+              <span class="rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">6 Months</span>
+            </div>
+            <ul class="mt-3 list-disc pl-5 text-sm text-zinc-300 space-y-1">
+              <li>Automated repetitive workflows, reducing manual effort and error rates.</li>
+              <li>Packaged bots with logs, retries, and environment configs for maintainability.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Introduction to Big Data - Swayam NPTEL</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">Learned core concepts behind big data architectures, distributed processing, and data analytics workflows.</p>
+              </div>
+              <span class="rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">6 Months</span>
+            </div>
+            <ul class="mt-3 list-disc pl-5 text-sm text-zinc-300 space-y-1">
+              <li>Explored technologies and tools used to handle large-scale datasets efficiently.</li>
+              <li>Gained hands-on experience with SQL queries, data manipulation, and database structures.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Introduction to Database Management Systems - Swayam NPTEL</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">Studied DBMS fundamentals including relational models, normalization, and schema design.</p>
+              </div>
+              <span class="rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">6 Months</span>
+            </div>
+            <ul class="mt-3 list-disc pl-5 text-sm text-zinc-300 space-y-1">
+              <li>Understood challenges of scalability, storage, and performance in data-intensive systems.</li>
+              <li>Learned principles of data integrity, indexing, and efficient data retrieval.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-base font-semibold tracking-tight text-[#cdd6f4]">Linux Systems & Environment Engineering — Independent Learning</h3>
+                <p class="mt-1 text-sm text-[#a6adc8]">Learned Linux from the ground up through daily use of Arch Linux, Ubuntu, and Pop!_OS.</p>
+              </div>
+              <span class="rounded-md border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">Active</span>
+            </div>
+            <ul class="mt-3 list-disc pl-5 text-sm text-zinc-300 space-y-1">
+              <li>Studied system internals including boot process, systemd services, package management, drivers, and kernel parameters.</li>
+              <li>Developed strong CLI proficiency using shell tools, logs, and system utilities for debugging and system maintenance.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+   <!-- Contact -->
+<section id="contact" class="border-t border-white/10" data-animate="in" style="animation-delay:.26s">
+  <div class="mx-auto max-w-7xl px-6 py-16">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#cdd6f4] inline-flex items-center gap-2">
+          <i data-lucide="send" class="h-6 w-6 text-indigo-300"></i>
+          Contact
+        </h2>
+        <p class="mt-2 text-sm text-[#a6adc8]">Have an opportunity or idea? Let’s talk.</p>
+        <div class="mt-6 space-y-3 text-sm text-zinc-300">
+          <a href="mailto:christinjoseph002@gmail.com" class="group inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:bg-white/10 hover:border-white/20 transition">
+            <i data-lucide="mail" class="h-4 w-4 text-indigo-300"></i>
+            christinjoseph002@gmail.com
+            <i data-lucide="arrow-up-right" class="h-4 w-4 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition"></i>
+          </a>
+          <a href="tel:+917559300522" class="group inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:bg-white/10 hover:border-white/20 transition">
+            <i data-lucide="phone" class="h-4 w-4 text-indigo-300"></i>
+            +91-7559300522
+            <i data-lucide="arrow-up-right" class="h-4 w-4 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition"></i>
+          </a>
+          <div class="flex gap-3">
+            <a href="https://www.linkedin.com/in/christin-joseph-0b7a41354/" target="_blank" class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:bg-white/10 hover:border-white/20 transition">
+              <i data-lucide="linkedin" class="h-4 w-4 text-indigo-300"></i> LinkedIn
+            </a>
+            <a href="https://github.com/christin000" target="_blank" class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:bg-white/10 hover:border-white/20 transition" aria-label="GitHub">
+              <i data-lucide="github" class="h-4 w-4 text-indigo-300"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form id="contactForm"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+              class="rounded-xl border border-white/10 bg-white/5 p-5 ring-1 ring-white/10">
+
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="819ee4ed-4a1f-460c-b250-85647b4e8940">
+
+          <div class="grid grid-cols-1 gap-4">
+            <div>
+              <label for="name" class="mb-1 block text-xs text-zinc-400">Name</label>
+              <input id="name" name="name" type="text" required
+                class="w-full rounded-md border border-white/10 bg-[#0C0F15]/80 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                placeholder="Your name" />
+            </div>
+            <div>
+              <label for="email" class="mb-1 block text-xs text-zinc-400">Email</label>
+              <input id="email" name="email" type="email" required
+                class="w-full rounded-md border border-white/10 bg-[#0C0F15]/80 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="message" class="mb-1 block text-xs text-zinc-400">Message</label>
+              <textarea id="message" name="message" rows="5" required
+                class="w-full rounded-md border border-white/10 bg-[#0C0F15]/80 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                placeholder="Hello, I’d like to discuss..."></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-[11px] text-zinc-500">Available at all times.</div>
+              <button type="submit"
+                class="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white ring-1 ring-inset ring-indigo-500/50 hover:bg-indigo-500 hover:ring-indigo-400 transition">
+                <i data-lucide="send" class="h-4 w-4"></i>
+                Send
+              </button>
+            </div>
+            <!-- Status message -->
+            <p id="formStatus" class="hidden rounded-md px-3 py-2 text-xs mt-2"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-white/10">
+  <div class="mx-auto max-w-7xl px-6 py-10">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-zinc-400">© <span id="year"></span> Christin Joseph. All rights reserved.</p>
+      <div class="flex items-center gap-3 text-xs text-zinc-400">
+        <a href="#about" class="hover:text-zinc-200 transition">About</a>
+        <span class="h-3 w-px bg-white/10"></span>
+        <a href="#projects" class="hover:text-zinc-200 transition">Projects</a>
+        <span class="h-3 w-px bg-white/10"></span>
+        <a href="#contact" class="hover:text-zinc-200 transition">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Icons
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+  });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
+  (function() {
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    const [openIcon, closeIcon] = btn.querySelectorAll('i');
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+      openIcon.classList.toggle('hidden', open);
+      closeIcon.classList.toggle('hidden', !open);
+    });
+  })();
+
+  // Resume open in new tab
+  (function() {
+    const btn = document.getElementById('resumeBtn');
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const url = btn.getAttribute('data-resume-url') || '/resume.pdf';
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  })();
+
+  // Contact form: Web3Forms AJAX submit
+  (function() {
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        const data = await res.json();
+
+        status.classList.remove('hidden');
+        if (data.success) {
+          status.textContent = "✅ Thanks! Your message has been sent.";
+          status.className = "rounded-md border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-200 mt-2";
+          form.reset();
+        } else {
+          status.textContent = "❌ Error: " + (data.message || "Something went wrong.");
+          status.className = "rounded-md border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-xs text-rose-200 mt-2";
+        }
+      } catch (err) {
+        status.classList.remove('hidden');
+        status.textContent = "❌ Network error. Please try again.";
+        status.className = "rounded-md border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-xs text-rose-200 mt-2";
+      }
+    });
+  })();
+
+  // Chart.js: skills metrics
+  (function() {
+    const ctx = document.getElementById('skillsChart');
+    if (!ctx || !window.Chart) return;
+    const grid = '#2a2f3b';
+    const text = '#a6adc8';
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['C++/OpenGL', 'Three.js/WebGL', 'Rust/Systems', 'RPA/UiPath', 'Databases'],
+        datasets: [
+          {
+            label: 'Graphics',
+            data: [92, 86, 70, 40, 58],
+            backgroundColor: 'rgba(99,102,241,0.6)',
+            borderColor: 'rgba(99,102,241,0.85)',
+            borderWidth: 1.2,
+            borderRadius: 6,
+          },
+          {
+            label: '3D Web',
+            data: [60, 90, 55, 35, 50],
+            backgroundColor: 'rgba(217,70,239,0.6)',
+            borderColor: 'rgba(217,70,239,0.85)',
+            borderWidth: 1.2,
+            borderRadius: 6,
+          },
+          {
+            label: 'Systems',
+            data: [75, 58, 88, 45, 70],
+            backgroundColor: 'rgba(16,185,129,0.6)',
+            borderColor: 'rgba(16,185,129,0.85)',
+            borderWidth: 1.2,
+            borderRadius: 6,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            grid: { color: grid, borderColor: grid },
+            ticks: { color: text, font: { size: 11 } },
+            stacked: false,
+          },
+          y: {
+            beginAtZero: true,
+            grid: { color: grid, borderColor: grid },
+            ticks: { color: text, font: { size: 11 } },
+            suggestedMax: 100,
+          },
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(17,19,27,0.95)',
+            borderColor: 'rgba(255,255,255,0.08)',
+            borderWidth: 1,
+            titleColor: '#e5e7eb',
+            bodyColor: '#c7cbd6',
+            padding: 10,
+          },
+        },
+      },
+    });
+  })();
+
+  // Projects slider: autoplay + controls + dots
+  (function() {
+    const scroller = document.getElementById('projectsScroller');
+    const prevBtn = document.getElementById('projPrev');
+    const nextBtn = document.getElementById('projNext');
+    const dotsWrap = document.getElementById('projectsDots');
+    if (!scroller || !dotsWrap) return;
+
+    const cards = Array.from(scroller.querySelectorAll('article'));
+    let index = 0;
+    let timer = null;
+    const autoplayMs = 4500;
+
+    // Create dots
+    dotsWrap.innerHTML = '';
+    const dots = cards.map((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'h-2.5 w-2.5 rounded-full border border-white/20 bg-white/10 transition-all';
+      b.setAttribute('aria-label', `Go to project ${i + 1}`);
+      b.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    function setActiveDot(i) {
+      dots.forEach((d, di) => {
+        d.classList.toggle('w-6', di === i);
+        d.classList.toggle('bg-indigo-400/90', di === i);
+        d.classList.toggle('border-indigo-300/60', di === i);
+      });
+    }
+
+    function goTo(i) {
+      index = (i + cards.length) % cards.length;
+      const card = cards[index];
+      scroller.scrollTo({ left: card.offsetLeft, behavior: 'smooth' });
+      setActiveDot(index);
+    }
+
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    // Buttons
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
+
+    // Update active dot on scroll (snap-aware)
+    let raf = null;
+    function onScroll() {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const sl = scroller.scrollLeft;
+        const nearest = cards.reduce((acc, el, i) => {
+          const dist = Math.abs(el.offsetLeft - sl);
+          if (dist < acc.dist) return { i, dist };
+          return acc;
+        }, { i: 0, dist: Infinity }).i;
+        index = nearest;
+        setActiveDot(index);
+      });
+    }
+    scroller.addEventListener('scroll', onScroll, { passive: true });
+
+    // Autoplay with pause on hover/focus
+    function start() { stop(); timer = setInterval(next, autoplayMs); }
+    function stop() { if (timer) clearInterval(timer); timer = null; }
+
+    scroller.addEventListener('pointerenter', stop);
+    scroller.addEventListener('pointerleave', start);
+    scroller.addEventListener('focusin', stop);
+    scroller.addEventListener('focusout', start);
+
+    // Init
+    setActiveDot(0);
+    start();
+
+    // Resize alignment
+    window.addEventListener('resize', () => goTo(index));
+  })();
+</script>
+</body>
+</html>
